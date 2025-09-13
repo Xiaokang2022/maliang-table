@@ -1,0 +1,50 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "maliang-table"
+authors = [{ name = "Xiaokang2022", email = "2951256653@qq.com" }]
+maintainers = [{ name = "Xiaokang2022", email = "2951256653@qq.com" }]
+description = "Extension package of maliang for supporting table"
+readme = "README.md"
+license = { text = "MIT License" }
+requires-python = ">=3.10"
+keywords = ["tkinter", "maliang", "table", "cross-platform", "themed"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: Microsoft :: Windows",
+    "Operating System :: POSIX :: Linux",
+    "Operating System :: MacOS",
+    "Intended Audience :: Developers",
+    "Typing :: Typed",
+]
+dependencies = [
+    "maliang>=3.0.0",
+    "tksheet>=7.0.0",
+]
+dynamic = ["version"]
+
+[project.urls]
+"Bug tracker" = "https://github.com/Xiaokang2022/maliang-table/issues"
+"Source code" = "https://github.com/Xiaokang2022/maliang-table"
+
+[tool.setuptools.dynamic]
+version = { attr = "maliang.table.__version__" }
+
+[tool.setuptools.packages.find]
+include = ["maliang*"]
+
+[tool.pylint]
+output-format = "colorized"
+reports = "y"
+fail-on = "E,F"
+fail-under = 9
+disable = 'line-too-long'
+
+[tool.pytest.ini_options]
+addopts = ["--color=yes", "--reruns=3"]
+
+# python -m build
+# python -m twine upload dist/*
